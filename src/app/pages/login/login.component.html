@@ -3,7 +3,7 @@
         <div class="col-lg-6 col-12 d-flex flex-column justify-content-center align-items-center order-lg-0 order-1">
             <div class="w-75">
                 <h1 class="text-center">Sign in</h1>
-                <h4 class="text-center">Don't have an account? <a class="link-success mx-2 pointer-event">Signup</a></h4>
+                <h4 class="text-center">Don't have an account? <a class="link-success mx-2 pointer-event" [routerLink]="['/','signup']">Signup</a></h4>
                 <form class="d-flex flex-column justify-content-center" #form="ngForm" (ngSubmit)="onLogin(form)">
                     <!-- Email -->
                     <input class="form-control my-4 shadow-sm" type="email" placeholder="Email" name="email" ngModel required email>

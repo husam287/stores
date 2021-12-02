@@ -1,0 +1,13 @@
+.loginCover {
+    background-image: linear-gradient(180deg, #00000000 0%, #0f0f0f 100%),
+        url("../../../assets/images/How-to-Start-an-Online-Store.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    img {
+        width: 50%;
+        background-color: #0f0f0f;
+        padding: 3% 7%;
+        border-radius: 20px;
+    }
+}
