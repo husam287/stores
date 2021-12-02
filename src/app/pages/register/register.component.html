@@ -3,22 +3,34 @@
         <div class="col-lg-6 col-12 d-flex flex-column justify-content-center align-items-center order-lg-0 order-1">
             <div class="w-75">
                 <h1 class="text-center">Sign up</h1>
-                <h4 class="text-center">Already have an account? <a class="link-success mx-2 pointer-event">Login</a></h4>
+                <h4 class="text-center">Already have an account? <a class="link-success mx-2 pointer-event">Login</a>
+                </h4>
                 <form class="d-flex flex-column justify-content-center" #form="ngForm" (ngSubmit)="onSignup(form)">
                     <!-- Name -->
-                    <input class="form-control my-4 shadow-sm" type="text" placeholder="Name" name="name" ngModel required>
-                    
+                    <input class="form-control my-4 shadow-sm" type="text" placeholder="Name" name="name" ngModel
+                        required>
+
                     <!-- Email -->
-                    <input class="form-control mb-4 shadow-sm" type="email" placeholder="Email" name="email" ngModel required email>
+                    <input class="form-control mb-4 shadow-sm" type="email" placeholder="Email" name="email" ngModel
+                        required email>
 
                     <!-- phone -->
-                    <input class="form-control mb-4 shadow-sm" type="tel" placeholder="Phone" name="phone" ngModel required>
+                    <input class="form-control mb-4 shadow-sm" type="tel" placeholder="Phone" name="phone" ngModel
+                        required>
+
+                    <select class="form-select mb-4 shadow-sm" name="region" ngModel=''>
+                        <option value='' hidden>Region...</option>
+                        <option value="cairo">Cairo</option>
+                        <option value="alex">Alexandria</option>
+                    </select>
 
                     <!-- Password -->
-                    <input class="form-control mb-4 shadow-sm" type="password" placeholder="Password" name="password" ngModel required>
+                    <input class="form-control mb-4 shadow-sm" type="password" placeholder="Password" name="password"
+                        ngModel required>
 
                     <!-- Confirm Password -->
-                    <input class="form-control mb-4 shadow-sm" type="password" placeholder="Confirm Password" name="confirmPassword" ngModel required>
+                    <input class="form-control mb-4 shadow-sm" type="password" placeholder="Confirm Password"
+                        name="confirmPassword" ngModel required>
 
                     <button class="btn btn-success">SIGN UP</button>
                 </form>
