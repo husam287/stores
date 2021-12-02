@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { take } from 'rxjs/operators';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-header',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  user = null;
+  constructor(private _userService: UserService) { }
 
   ngOnInit(): void {
+    this._userService.user$.subscribe(res => {
+      this.user = res
+    })
   }
 
 }

@@ -6,10 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./user-dropdown.component.scss']
 })
 export class UserDropdownComponent implements OnInit {
-
+  isMobile = window.innerWidth < 992;
   constructor() { }
 
   ngOnInit(): void {
+
   }
 
 }
