@@ -1,0 +1,12 @@
+.copyPart{
+    i{
+        font-size: 23px;
+        cursor: pointer;
+        &:hover{
+            transform: scale(1.2);
+        }
+    }
+    i.copied{
+        transform: scale(1.2);
+    }
+}

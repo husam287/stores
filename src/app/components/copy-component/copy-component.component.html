@@ -1,0 +1,4 @@
+<div class="d-flex copyPart mx-2">
+    <i (click)="copy()" *ngIf="!copied" class="bi bi-clipboard"></i>
+    <i *ngIf="copied" class="bi bi-clipboard-check copied text-success"></i>
+</div>
