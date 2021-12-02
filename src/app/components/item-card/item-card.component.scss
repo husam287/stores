@@ -1,9 +1,22 @@
-.card--rounded{
+.card--rounded {
     border-radius: 20px;
 }
-.card--scale{
-    transition: all ease-in-out .3s;
-    &:hover{
+.card--scale {
+    transition: all ease-in-out 0.3s;
+    &:hover {
         transform: scale(1.02);
+    }
+}
+.quantity {
+    position: absolute;
+    right: .5rem;
+    top: .5rem;
+    color: var(--bs-success);
+    i {
+        font-size: 26px;
+        margin-right: .5rem;
+    }
+    b {
+        font-size: 26px;
     }
 }
