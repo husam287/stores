@@ -18,6 +18,7 @@ import { UserInfoCardComponent } from './components/user-info-card/user-info-car
 import { MyProfileComponent } from './pages/my-profile/my-profile.component';
 import { HistoryComponent } from './pages/history/history.component';
 import { AddItemComponent } from './pages/add-item/add-item.component';
+import { StickyNoteComponent } from './components/sticky-note/sticky-note.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { AddItemComponent } from './pages/add-item/add-item.component';
     MyProfileComponent,
     HistoryComponent,
     AddItemComponent,
+    StickyNoteComponent,
   ],
   imports: [
     BrowserModule,

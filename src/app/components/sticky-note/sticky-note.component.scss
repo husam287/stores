@@ -1,0 +1,35 @@
+.card {
+    overflow: hidden;
+}
+
+.card-body .rotate {
+    z-index: 8;
+    float: right;
+    height: 100%;
+}
+
+.card-body i {
+    color: rgba(20, 20, 20, 0.15);
+    position: absolute;
+    left: auto;
+    right: 0px;
+    bottom: -10px;
+    display: block;
+    transform: rotate(-44deg);
+    font-size: 74px;
+}
+.bgBlue{
+    background-color: #038cd8;
+}
+.orangeBg {
+    background-color: #ff4500;
+}
+.normalPinkBg {
+    background-color: #c70039;
+}
+.greyBg {
+    background-color: #ada7a7;
+}
+.darkBlueBg {
+    background-color: #041f60;
+}
