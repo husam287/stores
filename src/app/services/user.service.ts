@@ -6,6 +6,6 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class UserService {
 
-  user$ = new BehaviorSubject<any>(true);
+  user$ = new BehaviorSubject<any>(null);
   constructor() { }
 }
