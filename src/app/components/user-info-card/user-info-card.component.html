@@ -1,8 +1,8 @@
 <div class="d-flex flex-column justify-content-center align-items-center">
     <img class="userPhoto"
-        src="https://www.everblazing.org/wp-content/uploads/2017/06/avatar-372-456324-300x300.png" alt="user photo">
+        [src]="imageUrl" alt="user photo">
     <h1 class="text-center">{{name}}</h1>
-    <div class="card">
+    <div *ngIf="email && phone" class="card">
         <div class="card-body d-flex flex-column px-5">
             <div class="d-flex justify-content-between">
                 <a [href]="'mailto:'+email"><i class="bi bi-envelope"></i> Send Email</a>

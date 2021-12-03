@@ -9,6 +9,7 @@ export class UserInfoCardComponent implements OnInit {
   @Input() name:string = ""
   @Input() phone:string = ""
   @Input() email:string = ""
+  @Input() imageUrl:string = ""
 
   constructor() { }
 

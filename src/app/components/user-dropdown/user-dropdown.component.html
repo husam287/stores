@@ -4,15 +4,15 @@
     </a>
 
     <ul class="dropdown-menu position-absolute" aria-labelledby="dropdownMenuLink">
-        <a class="d-flex align-items-center dropdown-item">
+        <a class="d-flex align-items-center dropdown-item" [routerLink]="['/','profile']">
             <i class="bi bi-person-bounding-box me-2"></i>
             <span>My Profile</span>
         </a>
-        <a class="d-flex align-items-center dropdown-item">
+        <a class="d-flex align-items-center dropdown-item" [routerLink]="['/','profile','history']">
             <i class="bi bi-clock-history me-2"></i>
             <span>History</span>
         </a>
-        <a class="d-flex align-items-center dropdown-item">
+        <a (click)="logout()" class="d-flex align-items-center dropdown-item">
             <i class="bi bi-box-arrow-in-left me-2"></i>
             <span>Logout</span>
         </a>

@@ -15,6 +15,9 @@ import { UserCardComponent } from './components/user-card/user-card.component';
 import { UserDropdownComponent } from './components/user-dropdown/user-dropdown.component';
 import { CopyComponentComponent } from './components/copy-component/copy-component.component';
 import { UserInfoCardComponent } from './components/user-info-card/user-info-card.component';
+import { MyProfileComponent } from './pages/my-profile/my-profile.component';
+import { HistoryComponent } from './pages/history/history.component';
+import { AddItemComponent } from './pages/add-item/add-item.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +33,9 @@ import { UserInfoCardComponent } from './components/user-info-card/user-info-car
     UserDropdownComponent,
     CopyComponentComponent,
     UserInfoCardComponent,
+    MyProfileComponent,
+    HistoryComponent,
+    AddItemComponent,
   ],
   imports: [
     BrowserModule,

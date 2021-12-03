@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-user-dropdown',
@@ -7,10 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserDropdownComponent implements OnInit {
   isMobile = window.innerWidth < 992;
-  constructor() { }
+  constructor(private _userService: UserService, private router:Router) { }
 
   ngOnInit(): void {
 
   }
 
+  logout() {
+    this._userService.user$.next(null)
+    localStorage.clear()
+    this.router.navigate(['/','login'])
+  }
 }
