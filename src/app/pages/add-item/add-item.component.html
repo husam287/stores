@@ -1,1 +1,29 @@
-<p>add-item works!</p>
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-12 shadow p-5">
+            <h1 class="text-center">Add new item</h1>
+            <form #form="ngForm" (ngSubmit)="onAddItem(form)">
+                <!-- Name -->
+                <input class="form-control my-4 shadow-sm" type="text" placeholder="Name" name="name" ngModel required>
+
+                <!-- Name -->
+                <textarea class="form-control my-4 shadow-sm" style="resize: none;" rows="5" type="text"
+                    placeholder="Description" name="description" ngModel required></textarea>
+
+                <!-- Price -->
+                <input class="form-control mb-4 shadow-sm" type="number" min="1" placeholder="Price" name="price"
+                    ngModel required>
+
+                <!-- Amount -->
+                <input class="form-control mb-4 shadow-sm" type="number" min="1" placeholder="Amount" name="amount"
+                    ngModel required>
+
+                <!-- IMAGE -->
+                <input (change)="chooseFile($event)" [multiple]="false" class="form-control mb-4 shadow-sm" type="file" placeholder="Select image" accept=".png,.jpg,.jpeg" name="image" ngModel
+                    required>
+
+                <button type="submit" class="btn btn-success w-100">ADD</button>
+            </form>
+        </div>
+    </div>
+</div>

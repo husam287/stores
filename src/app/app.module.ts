@@ -42,7 +42,7 @@ import { StickyNoteComponent } from './components/sticky-note/sticky-note.compon
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
