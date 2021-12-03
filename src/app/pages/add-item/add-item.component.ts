@@ -1,5 +1,7 @@
+import { Location } from '@angular/common';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormGroup, NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-item',
@@ -10,7 +12,7 @@ export class AddItemComponent implements OnInit {
 
   selectedFile!: File;
 
-  constructor() { }
+  constructor(private location: Location) { }
 
   ngOnInit(): void {
   }
@@ -24,6 +26,7 @@ export class AddItemComponent implements OnInit {
     }
 
     formData.append('image', this.selectedFile)
+    this.location.back()
   }
 
   chooseFile(event: any) {

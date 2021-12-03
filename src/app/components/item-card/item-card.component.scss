@@ -8,15 +8,22 @@
     }
 }
 .quantity {
-    position: absolute;
-    right: .5rem;
-    top: .5rem;
-    color: var(--bs-success);
     i {
         font-size: 26px;
-        margin-right: .5rem;
+        margin-right: 0.5rem;
     }
     b {
         font-size: 26px;
+    }
+}
+.actions {
+    i {
+        font-size: 26px;
+    }
+}
+.btn-outline-dark {
+    &:hover {
+        color: var(--bs-danger);
+        background-color: var(--bs-light);
     }
 }
