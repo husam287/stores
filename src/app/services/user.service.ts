@@ -7,7 +7,7 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class UserService {
-  url = environment.URL;
+  private url = environment.URL;
   user$ = new BehaviorSubject<any>(null);
   constructor(private http: HttpClient) { }
 
@@ -25,5 +25,9 @@ export class UserService {
 
   getMyHistory() {
     return this.http.get(`${this.url}/myHistory`)
+  }
+
+  getMyInfo() {
+    return this.http.get(`${this.url}/info`)
   }
 }

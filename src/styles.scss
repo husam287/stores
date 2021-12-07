@@ -1,11 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,700;1,400&display=swap");
+// regular style toast
+@import "~ngx-toastr/toastr";
+
+
 
 * {
     font-family: "Poppins", sans-serif;
 }
 
-
-.pointer-event{
+.pointer-event {
     cursor: pointer;
 }

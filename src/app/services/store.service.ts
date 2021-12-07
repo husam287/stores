@@ -6,7 +6,7 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class StoreService {
-  url = environment.URL;
+  private url = environment.URL;
   constructor(private http: HttpClient) { }
 
   viewMyStore() {
