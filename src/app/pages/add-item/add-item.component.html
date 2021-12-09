@@ -19,8 +19,7 @@
                     ngModel required>
 
                 <!-- IMAGE -->
-                <input (change)="chooseFile($event)" [multiple]="false" class="form-control mb-4 shadow-sm" type="file" placeholder="Select image" accept=".png,.jpg,.jpeg" name="image" ngModel
-                    required>
+                <input class="form-control mb-4 shadow-sm" placeholder="Image Url" type="url" name="image" ngModel>
 
                 <button type="submit" class="btn btn-success w-100">ADD</button>
             </form>

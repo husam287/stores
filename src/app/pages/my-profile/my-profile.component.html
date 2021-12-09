@@ -3,7 +3,8 @@
         <app-user-info-card [name]="userData?.name" [imageUrl]="userData?.image">
         </app-user-info-card>
     </div>
-    <div class="d-flex justify-content-center my-3">
+    <div class="d-flex justify-content-center align-items-center my-4">
+        <input class="form-control w-25 text-center" placeholder="Enter Needed Money" [(ngModel)]="moneyAmount">
         <a (click)="addBalance()" class="btn btn-success d-flex justify-content-center align-items-center">
             <i class="bi bi-currency-dollar me-1"></i>
             <span>Add Balance!</span>

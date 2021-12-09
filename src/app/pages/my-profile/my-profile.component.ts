@@ -11,6 +11,7 @@ export class MyProfileComponent implements OnInit {
 
   userData: any
   totalItemsNumber!: number;
+  moneyAmount = null;
   constructor(private _userService: UserService, private _sysMsg: systemMessageService) { }
 
   ngOnInit(): void {
@@ -24,14 +25,15 @@ export class MyProfileComponent implements OnInit {
   }
 
   addBalance() {
-    let isConfirmed = confirm("Are you sure to add (100LE) to your balance?!")
+    if (!Number(this.moneyAmount)) return
+    let isConfirmed = confirm(`Are you sure to add (${Number(this.moneyAmount)}LE) to your balance?!`)
     if (!isConfirmed) return
 
     let userId = Number(localStorage.getItem('userId'))
-    this._userService.addBalance(userId, 100).toPromise()
+    this._userService.addBalance(userId, Number(this.moneyAmount)).toPromise()
       .then(res => {
-        this._sysMsg.showSuccess("100LE added to your balance successfully!")
-        this.userData.balance += 100
+        this._sysMsg.showSuccess(`${Number(this.moneyAmount)}LE added to your balance successfully!`)
+        this.userData.balance += Number(this.moneyAmount)
       })
       .catch(err => this._sysMsg.showError(err))
   }

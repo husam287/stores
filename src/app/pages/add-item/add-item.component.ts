@@ -26,7 +26,9 @@ export class AddItemComponent implements OnInit {
 
   onAddItem(form: NgForm) {
     let result = form.value
-    result['image'] = "https://picsum.photos/400"
+    if (!result['image'])
+      result['image'] = "https://picsum.photos/400";
+
     this._itemService.add(result).toPromise()
       .then(res => {
         this._sysMsg.showSuccess("Item Added Successfully!")
