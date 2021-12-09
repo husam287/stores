@@ -1,6 +1,17 @@
-<div *ngIf="items?.length" class="container mt-5">
-    <h1 class="my-3">Popular Items</h1>
-    <div class="row">
+<div  class="container mt-5">
+    <div class="row justify-content-between">
+        <div class="searchSection col-12 px-0 shadow rounded">
+            <input class="form-control form-control-lg" placeholder="Search" [(ngModel)]="search" name="search">
+            <button (click)="onSearch()" class="btn btn-success">
+                <i class="bi bi-search"></i>
+            </button>
+            <button (click)="clear()" *ngIf="isClearShow" class="btn btn-secondary">
+                clear
+            </button>
+        </div>
+    </div>
+
+    <div *ngIf="items?.length" class="row">
         <div *ngFor="let item of items" class="col-md-4 col-12 my-3">
             <app-item-card [item]="item"></app-item-card>
         </div>
