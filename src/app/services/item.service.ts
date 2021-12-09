@@ -26,7 +26,7 @@ export class ItemService {
     return this.http.post(`${this.url}/items/${itemId}/add`, { quantity })
   }
 
-  getAllItems(search: string) {
+  getAllItems(search?: string) {
     return this.http.get(`${this.url}/items?text=${search}`)
   }
 

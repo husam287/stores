@@ -21,7 +21,10 @@ import { MyProfileComponent } from './pages/my-profile/my-profile.component';
 import { HistoryComponent } from './pages/history/history.component';
 import { AddItemComponent } from './pages/add-item/add-item.component';
 import { StickyNoteComponent } from './components/sticky-note/sticky-note.component';
-import { InterceptorService } from './services/interceptor.service';
+import { InterceptorService } from './services/interceptors/interceptor.service';
+import { NotfoundComponentComponent } from './components/notfound-component/notfound-component.component';
+import { LoaderComponent } from './components/loader/loader.component';
+import { LoadingInterceptor } from './services/interceptors/loading.interceptor';
 
 @NgModule({
   declarations: [
@@ -41,6 +44,8 @@ import { InterceptorService } from './services/interceptor.service';
     HistoryComponent,
     AddItemComponent,
     StickyNoteComponent,
+    NotfoundComponentComponent,
+    LoaderComponent,
   ],
   imports: [
     BrowserModule,
@@ -51,6 +56,8 @@ import { InterceptorService } from './services/interceptor.service';
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true },
+
   ],
   bootstrap: [AppComponent]
 })
