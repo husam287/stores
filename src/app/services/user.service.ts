@@ -30,4 +30,12 @@ export class UserService {
   getMyInfo() {
     return this.http.get(`${this.url}/info`)
   }
+
+  getUsers() {
+    return this.http.get(`${this.url}/users`)
+  }
+
+  getUser(userId: number) {
+    return this.http.get(`${this.url}/users/${userId}`)
+  }
 }

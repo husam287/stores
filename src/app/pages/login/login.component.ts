@@ -17,12 +17,10 @@ export class LoginComponent implements OnInit {
   }
 
   onLogin(form: NgForm) {
-
-    this._userService.user$.next(true)
-    this.router.navigate(['/'])
     this._userService.login(form.value).toPromise()
-      .then((res: any) => {
-        console.log(res)
+    .then((res: any) => {
+      console.log(res)
+      this.router.navigate(['/'])
         localStorage.setItem('token', res.token)
         this._userService.user$.next(res.token)
       })

@@ -2,6 +2,9 @@ import { Location } from '@angular/common';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormGroup, NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ItemService } from 'src/app/services/item.service';
+import { UploadFileService } from 'src/app/services/upload-file.service';
+import { systemMessageService } from 'src/app/utils/toastr';
 
 @Component({
   selector: 'app-add-item',
@@ -12,21 +15,24 @@ export class AddItemComponent implements OnInit {
 
   selectedFile!: File;
 
-  constructor(private location: Location) { }
+  constructor(
+    private location: Location,
+    private _itemService: ItemService,
+    private _sysMsg: systemMessageService,
+  ) { }
 
   ngOnInit(): void {
   }
 
   onAddItem(form: NgForm) {
-    let formData = new FormData()
     let result = form.value
-    for (var key in result) {
-      if (key === 'image') continue;
-      formData.append(key, result[key]);
-    }
-
-    formData.append('image', this.selectedFile)
-    this.location.back()
+    result['image'] = "https://spinneys-egypt.com/cache/large/product/30398/yTa1Uy3I1B59UOROxbzwCo68z4qUc4HthmSZ9tea.jpg"
+    this._itemService.add(result).toPromise()
+      .then(res => {
+        this._sysMsg.showSuccess("Item Added Successfully!")
+        this.location.back()
+      })
+      .catch(err => this._sysMsg.showError(err))
   }
 
   chooseFile(event: any) {

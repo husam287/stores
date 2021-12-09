@@ -8,9 +8,9 @@
     <div class="row">
         <div class="col-12">
             <div class="list-group">
-                <a [routerLink]="['s222']" *ngFor="let user of [1,2,3,4]" class="list-group-item list-group-item-action">
-                    <app-user-card [name]="'Hossam Sherif'" [itemsNumber]="29"
-                        [image]="'https://www.everblazing.org/wp-content/uploads/2017/06/avatar-372-456324-300x300.png'">
+                <a [routerLink]="[user.id]" *ngFor="let user of users" class="list-group-item list-group-item-action">
+                    <app-user-card [name]="user.name" [itemsNumber]="29"
+                        [image]="user.image">
                     </app-user-card>
                 </a>
             </div>

@@ -1,4 +1,4 @@
-<div *ngIf="userData" class="container mt-5">
+<div  class="container mt-5">
     <div class="row">
         <app-user-info-card [name]="'Hossam Sherif'"
             [imageUrl]="'https://www.everblazing.org/wp-content/uploads/2017/06/avatar-372-456324-300x300.png'">
@@ -6,7 +6,7 @@
     </div>
     <div class="row justify-content-center">
         <div class="col-xl-3 col-lg-4 col-md-5 col-sm-6">
-            <app-sticky-note [color]="'#038cd8'" [header]="'Balance'" data="{{userData.balance|currency:'EGP '}}"
+            <app-sticky-note [color]="'#038cd8'" [header]="'Balance'" data="{{userData?.balance|currency:'EGP '}}"
                 [icon]="'bi bi-coin'">
             </app-sticky-note>
         </div>
