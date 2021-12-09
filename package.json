@@ -7,7 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "deploy": "ng build --base-href \"http://online-shop-team12.ml/\" && ngh --dir dist/stores --cname=online-shop-team12.ml"
+    "deploy": "ng build --base-href \"https://online-shop-team12.ml/\" && ngh --dir dist/stores --cname=online-shop-team12.ml"
   },
   "private": true,
   "dependencies": {

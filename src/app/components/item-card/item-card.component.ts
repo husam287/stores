@@ -58,7 +58,7 @@ export class ItemCardComponent implements OnInit {
   }
 
   share() {
-    this._itemService.share(this.item.id, this.item.amount).toPromise()
+    this._itemService.share(this.item.id, this.item.quantity).toPromise()
       .then(res => {
         this._sysMsg.showSuccess("You shared this item to your profile successfully!")
       })

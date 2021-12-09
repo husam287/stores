@@ -15,8 +15,8 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this._itemService.getAllItems().toPromise()
       .then((res: any) => {
-        this.items = res.items
-        console.log(res)
+        let userId = Number(localStorage.getItem('userId'));
+        this.items = res?.items?.filter((item: any) => item?.creator_id !== userId)
       })
       .catch(err => this._sysMsg.showError(err))
   }

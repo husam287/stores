@@ -1,6 +1,6 @@
 <div class="container mt-5">
     <div class="row">
-        <app-user-info-card [name]="'Hossam Sherif'" [imageUrl]="userData?.image">
+        <app-user-info-card [name]="userData?.name" [imageUrl]="userData?.image">
         </app-user-info-card>
     </div>
     <div class="d-flex justify-content-center my-3">
@@ -41,7 +41,7 @@
     <hr>
     <div class="row mt-5">
         <div *ngFor="let item of userData?.sharedItems" class="col-md-4 col-12 my-3">
-            <app-item-card [item]="item"></app-item-card>
+            <app-item-card [item]="item" [isBought]="true"></app-item-card>
         </div>
     </div>
 

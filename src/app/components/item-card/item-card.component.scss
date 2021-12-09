@@ -27,3 +27,7 @@
         background-color: var(--bs-light);
     }
 }
+.card-img-top {
+    height: 400px !important;
+    object-fit: contain;
+}
