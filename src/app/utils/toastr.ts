@@ -13,6 +13,6 @@ export class systemMessageService {
     }
     showError(err: any) {
         console.log("Catched Error => ", err)
-        this.toastr.error(err?.error?.error?.details || err?.error?.error?.message || err?.message || "UNEXPECTED_ERROR", undefined, { progressBar: true, progressAnimation: 'decreasing', timeOut: 3000 })
+        this.toastr.error(err?.error?.message || err?.error?.error?.details || err?.error?.error?.message || err?.message || "UNEXPECTED_ERROR", undefined, { progressBar: true, progressAnimation: 'decreasing', timeOut: 3000 })
     }
 }

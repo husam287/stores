@@ -1,4 +1,4 @@
-<div class="container--custom">
+<div *ngIf="(history && history?.length)" class="container--custom">
     <div class="wrapper shadow">
         <h1 class="fw-bold">Your History</h1>
         <hr>
@@ -16,5 +16,14 @@
                 <p>How is it already 9:00? Just how??? 🤯🤯</p>
             </li>
         </ul>
+    </div>
+</div>
+
+<div *ngIf="!(history && history?.length)" class="container">
+    <div class="row justify-content-center align-items-center text-center mt-5">
+        <div class="col-md-8 col-12 notFound shadow">
+            <i class="bi bi-x-octagon text-danger"></i>
+            <h1 class="text-danger">THERE IS NO HISTORY YET!</h1>
+        </div>
     </div>
 </div>

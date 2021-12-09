@@ -21,8 +21,10 @@ export class LoginComponent implements OnInit {
     this._userService.user$.next(true)
     this.router.navigate(['/'])
     this._userService.login(form.value).toPromise()
-      .then(res => {
+      .then((res: any) => {
         console.log(res)
+        localStorage.setItem('token', res.token)
+        this._userService.user$.next(res.token)
       })
       .catch(err => this.sysMsg.showError(err))
   }

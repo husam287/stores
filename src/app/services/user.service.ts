@@ -12,7 +12,7 @@ export class UserService {
   constructor(private http: HttpClient) { }
 
   signup(values: any) {
-    return this.http.post(`${this.url}/signup`, { ...values })
+    return this.http.post(`${this.url}/signup`, { ...values, image: "https://www.everblazing.org/wp-content/uploads/2017/06/avatar-372-456324-300x300.png" })
   }
 
   login(values: any) {

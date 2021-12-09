@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -21,6 +21,7 @@ import { MyProfileComponent } from './pages/my-profile/my-profile.component';
 import { HistoryComponent } from './pages/history/history.component';
 import { AddItemComponent } from './pages/add-item/add-item.component';
 import { StickyNoteComponent } from './components/sticky-note/sticky-note.component';
+import { InterceptorService } from './services/interceptor.service';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,9 @@ import { StickyNoteComponent } from './components/sticky-note/sticky-note.compon
     HttpClientModule,
     ToastrModule.forRoot()
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

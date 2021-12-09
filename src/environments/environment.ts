@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  URL:"http://localhost/api"
+  URL:"https://online-marketplace-backend.herokuapp.com/api"
 };
 
 /*
