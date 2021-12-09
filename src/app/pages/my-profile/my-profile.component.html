@@ -1,8 +1,14 @@
-<div  class="container mt-5">
+<div class="container mt-5">
     <div class="row">
-        <app-user-info-card [name]="'Hossam Sherif'"
-            [imageUrl]="'https://www.everblazing.org/wp-content/uploads/2017/06/avatar-372-456324-300x300.png'">
+        <app-user-info-card [name]="'Hossam Sherif'" [imageUrl]="userData?.image">
         </app-user-info-card>
+    </div>
+    <div class="d-flex justify-content-center my-3">
+        <a (click)="addBalance()" class="btn btn-success d-flex justify-content-center align-items-center">
+            <i class="bi bi-currency-dollar me-1"></i>
+            <span>Add Balance!</span>
+            <i class="bi bi-currency-dollar ms-1"></i>
+        </a>
     </div>
     <div class="row justify-content-center">
         <div class="col-xl-3 col-lg-4 col-md-5 col-sm-6">
@@ -11,7 +17,8 @@
             </app-sticky-note>
         </div>
         <div class="col-xl-3 col-lg-4 col-md-5 col-sm-6">
-            <app-sticky-note [color]="'#ff4500'" [header]="'Total products'" data="23" [icon]="'bi bi-box'">
+            <app-sticky-note [color]="'#ff4500'" [header]="'Total products'" [data]="totalItemsNumber"
+                [icon]="'bi bi-box'">
             </app-sticky-note>
         </div>
     </div>
@@ -23,17 +30,18 @@
     </div>
     <hr>
     <div class="row mt-5">
-        <div class="col-md-4 col-12 my-3">
-            <app-item-card [isMyItem]="true"></app-item-card>
+        <div *ngFor="let item of userData?.createdItems" class="col-md-4 col-12 my-3">
+            <app-item-card [item]="item" [isMyItem]="true"></app-item-card>
         </div>
-        <div class="col-md-4 col-12 my-3">
-            <app-item-card [isMyItem]="true"></app-item-card>
-        </div>
-        <div class="col-md-4 col-12 my-3">
-            <app-item-card [isMyItem]="true"></app-item-card>
-        </div>
-        <div class="col-md-4 col-12 my-3">
-            <app-item-card [isMyItem]="true"></app-item-card>
+    </div>
+
+    <div class="d-flex justify-content-between mt-5">
+        <h1 class="m-0">Shared items</h1>
+    </div>
+    <hr>
+    <div class="row mt-5">
+        <div *ngFor="let item of userData?.sharedItems" class="col-md-4 col-12 my-3">
+            <app-item-card [item]="item" [isMyItem]="true"></app-item-card>
         </div>
     </div>
 </div>

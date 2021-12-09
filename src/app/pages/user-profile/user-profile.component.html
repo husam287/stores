@@ -1,24 +1,22 @@
-<div class="container mt-3">
-    <app-user-info-card [name]="'Hossam Sherif'"
-        [imageUrl]="'https://www.everblazing.org/wp-content/uploads/2017/06/avatar-372-456324-300x300.png'"
-        [email]="'husam287@hotmail.com'" [phone]="'01129000383'">
+<div *ngIf="userInfo" class="container mt-3">
+    <app-user-info-card [name]="userInfo?.user?.name" [imageUrl]="userInfo.user.image" [email]="userInfo?.user?.email"
+        [phone]="userInfo?.user?.phone">
     </app-user-info-card>
 
 
     <div class="row mt-5">
-        <h1>{{'Hossam'}}'s Store</h1>
+        <h1>{{userInfo?.user?.name?.split(' ')[0]}}'s Store</h1>
         <hr class="mb-5">
-        <div class="col-md-4 col-12 my-3">
-            <app-item-card></app-item-card>
+        <div *ngFor="let item of userInfo?.createdItems" class="col-md-4 col-12 my-3">
+            <app-item-card [item]="item"></app-item-card>
         </div>
-        <div class="col-md-4 col-12 my-3">
-            <app-item-card></app-item-card>
-        </div>
-        <div class="col-md-4 col-12 my-3">
-            <app-item-card></app-item-card>
-        </div>
-        <div class="col-md-4 col-12 my-3">
-            <app-item-card></app-item-card>
+    </div>
+
+    <div class="row mt-5">
+        <h1>{{userInfo?.user?.name?.split(' ')[0]}}'s Shared Items</h1>
+        <hr class="mb-5">
+        <div *ngFor="let item of userInfo?.shared_items" class="col-md-4 col-12 my-3">
+            <app-item-card [item]="item"></app-item-card>
         </div>
     </div>
 </div>

@@ -11,7 +11,7 @@ export class ItemService {
   constructor(private http: HttpClient) { }
 
   add(item: any) {
-    return this.http.get(`${this.url}/items`, { ...item })
+    return this.http.post(`${this.url}/items`, { ...item })
   }
 
   edit(itemId: number, newBody: any) {
@@ -26,11 +26,11 @@ export class ItemService {
     return this.http.post(`${this.url}/items/${itemId}/add`, { quantity })
   }
 
-  getAllItems(search?: string) {
+  getAllItems(search: string = '') {
     return this.http.get(`${this.url}/items?text=${search}`)
   }
 
-  buyItem(itemId: number) {
-    return this.http.post(`${this.url}/items/${itemId}/buy`, null)
+  buyItem(itemId: number, quantity: number) {
+    return this.http.post(`${this.url}/items/${itemId}/buy`, { quantity })
   }
 }

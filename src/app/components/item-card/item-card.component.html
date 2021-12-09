@@ -1,4 +1,4 @@
-<div class="card card--rounded card--scale w-100 overflow-hidden shadow">
+<div *ngIf="item" class="card card--rounded card--scale w-100 overflow-hidden shadow">
     <div class="d-flex p-2 bg-success" [ngClass]="isMyItem? 'justify-content-between ':'justify-content-center'">
         <div *ngIf="isMyItem" class="actions d-flex align-items-center">
             <button (click)="onDelete()" class="btn btn-sm btn-outline-dark border-0"><i
@@ -10,22 +10,25 @@
         </div>
         <div class="quantity text-light d-flex align-items-center justify-content-center">
             <i class="bi bi-box"></i>
-            <b>13</b>
+            <b>{{item.quantity}}</b>
         </div>
     </div>
-    <img src="../../../assets/images/band4_1.jpg" class="card-img-top" alt="item photo">
+    <img *ngIf="item?.image" [src]="item.image" class="card-img-top" alt="item photo">
     <div class="card-body d-flex flex-column">
         <div class="d-flex flex-row justify-content-between">
-            <h5 class="card-title text-success ">Card title</h5>
-            <small class="text-secondary pointer-event"><i class="bi bi-person-bounding-box"></i> Hossam Sherif</small>
+            <h5 class="card-title text-success ">{{item.name}}</h5>
+            <small [routerLink]="['/','users',item.creator_id]" class="text-secondary pointer-event"><i
+                    class="bi bi-person-bounding-box"></i>
+                {{item.creatorName}}
+            </small>
         </div>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-            content.
+        <p class="card-text">
+            {{item.description}}
         </p>
         <div class="price d-flex justify-content-center my-2">
             <b class="me-2">EGP</b>
-            <b class="text-success h5">{{349|currency:' '}}</b>
+            <b class="text-success h5">{{item.price|currency:' '}}</b>
         </div>
-        <a *ngIf="!isMyItem" class="btn btn-success fw-bold">BUY NOW!</a>
+        <a *ngIf="!isMyItem" (click)="buy()" class="btn btn-success fw-bold">BUY NOW!</a>
     </div>
 </div>

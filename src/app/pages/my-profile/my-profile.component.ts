@@ -15,9 +15,23 @@ export class MyProfileComponent implements OnInit {
 
   ngOnInit(): void {
     this._userService.getMyInfo().toPromise()
-      .then(res => {
+      .then((res: any) => {
         this.userData = res;
+        this.totalItemsNumber = res?.createdItems?.length + res?.sharedItems?.length
         console.log(this.userData)
+      })
+      .catch(err => this._sysMsg.showError(err))
+  }
+
+  addBalance() {
+    let isConfirmed = confirm("Are you sure to add (100LE) to your balance?!")
+    if (!isConfirmed) return
+
+    let userId = Number(localStorage.getItem('userId'))
+    this._userService.addBalance(userId, 100).toPromise()
+      .then(res => {
+        this._sysMsg.showSuccess("100LE added to your balance successfully!")
+        this.userData.balance += 100
       })
       .catch(err => this._sysMsg.showError(err))
   }

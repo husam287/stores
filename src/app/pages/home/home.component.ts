@@ -14,8 +14,8 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this._itemService.getAllItems().toPromise()
-      .then(res => {
-        this.items = res
+      .then((res: any) => {
+        this.items = res.items
         console.log(res)
       })
       .catch(err => this._sysMsg.showError(err))
