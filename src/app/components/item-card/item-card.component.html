@@ -34,7 +34,7 @@
             <!-- AMOUNT SELECTION -->
             <div *ngIf="!isMyItem" class="d-flex justify-content-center my-2">
                 <button (click)="decreaseAmount()" class="btn btn-outline-success"><i class="bi bi-dash"></i></button>
-                <input class="form-control w-25" [(ngModel)]="amount" name="amount">
+                <input class="form-control w-25 text-center" [(ngModel)]="amount" name="amount">
                 <button (click)="increaseAmount()" class="btn btn-outline-success"><i class="bi bi-plus"></i></button>
             </div>
 
