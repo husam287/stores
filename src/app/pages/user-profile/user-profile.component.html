@@ -15,7 +15,7 @@
     <div class="row mt-5">
         <h1>{{userInfo?.user?.name?.split(' ')[0]}}'s Shared Items</h1>
         <hr class="mb-5">
-        <div *ngFor="let item of userInfo?.shared_items" class="col-md-4 col-12 my-3">
+        <div *ngFor="let item of userInfo?.sharedItems" class="col-md-4 col-12 my-3">
             <app-item-card [item]="item"></app-item-card>
         </div>
     </div>

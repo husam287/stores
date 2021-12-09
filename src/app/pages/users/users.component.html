@@ -9,8 +9,7 @@
         <div class="col-12">
             <div class="list-group">
                 <a [routerLink]="[user.id]" *ngFor="let user of users" class="list-group-item list-group-item-action">
-                    <app-user-card [name]="user.name" [itemsNumber]="29"
-                        [image]="user.image">
+                    <app-user-card [name]="user.name" [itemsNumber]="user.itemCount" [image]="user.image">
                     </app-user-card>
                 </a>
             </div>

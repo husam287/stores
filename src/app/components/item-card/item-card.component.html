@@ -1,4 +1,4 @@
-<div *ngIf="item" class="card card--rounded card--scale w-100 overflow-hidden shadow">
+<div *ngIf="item" class="card card--rounded w-100 overflow-hidden shadow">
     <div class="d-flex p-2 bg-success" [ngClass]="isMyItem? 'justify-content-between ':'justify-content-center'">
         <div *ngIf="isMyItem" class="actions d-flex align-items-center">
             <button (click)="onDelete()" class="btn btn-sm btn-outline-dark border-0"><i
@@ -16,8 +16,8 @@
     <img *ngIf="item?.image" [src]="item.image" class="card-img-top" alt="item photo">
     <div class="card-body d-flex flex-column">
         <div class="d-flex flex-row justify-content-between">
-            <h5 class="card-title text-success ">{{item.name}}</h5>
-            <small [routerLink]="['/','users',item.creator_id]" class="text-secondary pointer-event"><i
+            <h5 class="card-title text-success">{{item.name}}</h5>
+            <small [routerLink]="['/','users',item.creator_id]" class="text-secondary pointer-event card--scale"><i
                     class="bi bi-person-bounding-box"></i>
                 {{item.creatorName}}
             </small>
@@ -29,6 +29,22 @@
             <b class="me-2">EGP</b>
             <b class="text-success h5">{{item.price|currency:' '}}</b>
         </div>
-        <a *ngIf="!isMyItem" (click)="buy()" class="btn btn-success fw-bold">BUY NOW!</a>
+
+        <ng-container *ngIf="!isBought">
+            <!-- AMOUNT SELECTION -->
+            <div *ngIf="!isMyItem" class="d-flex justify-content-center my-2">
+                <button (click)="decreaseAmount()" class="btn btn-outline-success"><i class="bi bi-dash"></i></button>
+                <input class="form-control w-25" [(ngModel)]="amount" name="amount">
+                <button (click)="increaseAmount()" class="btn btn-outline-success"><i class="bi bi-plus"></i></button>
+            </div>
+
+            <!-- BUY AND SHARE -->
+            <div class="d-flex">
+                <a *ngIf="!isMyItem" (click)="buy()" class="btn btn-success fw-bold flex-fill">BUY NOW!</a>
+                <a *ngIf="!isMyItem" (click)="share()" class="btn btn-outline-secondary ms-2">
+                    <i class="bi bi-share"></i>
+                </a>
+            </div>
+        </ng-container>
     </div>
 </div>

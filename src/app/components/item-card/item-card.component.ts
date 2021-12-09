@@ -11,11 +11,18 @@ export class ItemCardComponent implements OnInit {
 
   @Input() isMyItem: boolean = false;
   @Input() item: any;
-  isHidden = false;
+  @Input() isBought = false
 
+  isHidden = false;
+  amount = 1;
   constructor(private _itemService: ItemService, private _sysMsg: systemMessageService,) { }
 
   ngOnInit(): void {
+    let userId = Number(localStorage.getItem('userId'));
+    this.isMyItem = userId === this.item.creator_id
+    if(this.isBought){
+      this.isMyItem = false
+    }
   }
 
   onDelete() {
@@ -29,13 +36,21 @@ export class ItemCardComponent implements OnInit {
 
   onShow() {
     this.isHidden = false
+    console.log(this.amount)
   }
   onHide() {
     this.isHidden = true;
   }
 
+  increaseAmount() {
+    this.amount++;
+  }
+  decreaseAmount() {
+    this.amount--;
+  }
+
   buy() {
-    this._itemService.buyItem(this.item.id, this.item.quantity).toPromise()
+    this._itemService.buyItem(this.item.id, this.amount).toPromise()
       .then(res => {
         this._sysMsg.showSuccess("Buy Successfully!")
       })
@@ -43,7 +58,7 @@ export class ItemCardComponent implements OnInit {
   }
 
   share() {
-    this._itemService.share(this.item.id, this.item.quantity).toPromise()
+    this._itemService.share(this.item.id, this.item.amount).toPromise()
       .then(res => {
         this._sysMsg.showSuccess("You shared this item to your profile successfully!")
       })

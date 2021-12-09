@@ -3,17 +3,13 @@
         <h1 class="fw-bold">Your History</h1>
         <hr>
         <ul class="sessions">
-            <li>
-                <div class="time">{{date|date:'medium'}}</div>
-                <p>How is it already 9:00? Just how??? 🤯🤯</p>
-            </li>
-            <li>
-                <div class="time">{{date|date:'medium'}}</div>
-                <p>How is it already 9:00? Just how??? 🤯🤯</p>
-            </li>
-            <li>
-                <div class="time">{{date|date:'medium'}}</div>
-                <p>How is it already 9:00? Just how??? 🤯🤯</p>
+            <li *ngFor="let item of history">
+                <div class="time">{{item.date|date:'medium'}}</div>
+                <p>{{item.type + ' by '}}
+                    <b [ngClass]="item.type==='Add Balance'?'text-success':'text-danger'">
+                        {{item.amount|currency:'LE'}}
+                    </b>
+                </p>
             </li>
         </ul>
     </div>
